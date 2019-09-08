@@ -1,0 +1,18 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<div class="container">
+    <h2>{{ quest.title }}</h2>
+    <small class="text-muted">
+        <form action="{% url 'post-author-profile' %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="idno" value="{{ quest.author.id}}">
+                <button type="submit" class=" badge text-monospace">{{ quest.author|capfirst }}</button> 
+        </form>| {{ quest.created }}</small>
+    {% if quest.author == request.user %}
+    <a href="{% url 'edit-ask-question' quest.id %}" class="text-success"><i class="far fa-edit"></i></a>
+    <a href="{% url 'delete-ask-question' quest.id %}" class="text-success"><i class="far fa-trash-alt"></i></a>
+    {% endif %}
+    <hr>
+    <p>{{ quest.description|safe}}</p>
+</div>
+{% endblock content %}

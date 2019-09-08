@@ -1,0 +1,63 @@
+{%  extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+        <div class="row">
+            <div class="col-3">
+                <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Profile</a>
+                <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Posts</a>
+                <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Asked Questions</a>
+                <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Answered to Questions</a>
+                </div>
+                <div class="container border border-success rounded p-2 mt-3">
+                    <p class="text-success">Followers list -</p>
+                    <hr>
+                </div>
+            </div>
+            <div class="col-9">
+                <div class="tab-content" id="v-pills-tabContent">
+                <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel" aria-labelledby="v-pills-home-tab">
+                    <div class="media">
+                        {% for user in user_info %}
+                            <img src="{{ user.profile.image.url }}" class="mr-3 rounded-circle acc-img"  alt="user_pic">
+                            <div class="media-body mt-4">
+                                <h5 class="mt-0">{{ user.username|capfirst }}</h5>
+                                <small class="text-mute">{{user.email}}</small>
+                                ...
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="tab-pane fade " id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
+                    {% for post in user_posts %}
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><i class="fas fa-clipboard-list mr-1"></i>{{ post.title }}</li>
+                        </ul>
+                        {% empty %}
+                        <p class="text-info">There has not been posted any post.</p>
+                        <!-- <h2 class="account-heading">{{ post.title }}</h2>
+                        <p class="text-secondary">{{ post.body|safe|truncatewords:10 }}</p> -->
+                    
+                    {% endfor %}
+                </div>
+                <div class="tab-pane fade " id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
+                    {% for ques in user_asked_ques %}
+                        <ul class="list-group list-group-flush">
+                            <li class="list-group-item"><i class="fas fa-clipboard-list mr-1"></i>{{ ques.title }}</li>
+                        </ul>
+                        {% empty %}
+                            <p class="text-info">There has not been asked any question.</p>
+                        <!-- <h2 class="account-heading">{{ post.title }}</h2>
+                        <p class="text-secondary">{{ post.body|safe|truncatewords:10 }}</p> -->
+                    
+                    {% endfor %}
+                </div>
+                <div class="tab-pane fade " id="v-pills-settings" role="tabpanel" aria-labelledby="v-pills-settings-tab">
+                    <p class="text-danger">Under construction!!</p>
+                </div>
+                </div>
+            </div>
+        </div>
+</div>
+{% endblock content %}

@@ -1,0 +1,16 @@
+{% extends 'blog/base.html' %}
+{% block content %}
+<div class="container">
+        <h5 class="card-header border-0 rounded">{{ request.user|capfirst }}- unpublished posts <span class="badge badge-secondary">{{num_posts}}</span></h5>
+        {% for post in drafted_posts %}
+            <div class="card mt-2">
+                    <div class="card-body">
+                      <h5 class="card-title"><a href="{% url 'post-detail' post.id post.slug %}" class="text-success">{{ post.title }}</a></h5>
+                      <p class="card-text">{{ post.body|safe|truncatewords:5 }}</p>
+                      <p class="card-text"><small class="text-muted">{{ post.created }}</small></p>
+                      <!-- <a href="#" class="btn btn-primary">Button</a> -->
+                    </div>
+                  </div>
+        {% endfor %}  
+</div>
+{% endblock content %}

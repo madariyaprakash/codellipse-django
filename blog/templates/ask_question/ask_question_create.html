@@ -1,0 +1,62 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block content %}
+    <div class="container">
+            <div class="">
+                    <div class="card border-info mb-3" style="width:30rem;">
+                            <div class="card-header text-info">
+                                <small>Please read the instruction before writing your query:</small>
+                            </div>
+                            <div class="card-body text-info">
+                                <small>
+                                    <ul class="p-1">
+                                        <li>Question should be very clear short and simple.</li>
+                                        <li>If you're adding code in the description box, make sure it's properly edited.
+                                            <a href="#" class="text-dark font-weight-bold" data-toggle="modal" data-target="#exampleCodeEditing">
+                                                    See the example
+                                            </a>
+                                        <li>If status is draft then it will be saved to your account and you can publish that anytime.</li>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="exampleCodeEditing" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                        <h5 class="modal-title" id="exampleModalCenterTitle">How to edit the code :</h5>
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                        </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                        <ul>
+                                                            <li>Paste the code.</li>
+                                                            <li>Go to "style" and select "special container".</li>
+                                                            <li>If you want to give the text as code format look - select the lines of code and change the style as "computer code" under "styles".</li>
+                                                            
+                                                            <img style="width:400px; height:70px;" src="{% static 'images/screenshot_code.png' %}">
+                                                        </ul>
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                        <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+                                                        </div>
+                                                    </div>
+                                                    </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </small>
+                            </div>
+                    </div>
+                </div>
+        <div class="row">
+            <div class="col-12">
+                    <form method="POST">
+                            {% csrf_token %}
+                                {{ form|crispy }}
+                            <button class="btn btn-md rounded-pill btn-outline-success">Submit</button>
+                    </form>
+            </div>     
+        </div>
+    </div>
+{% endblock content %}

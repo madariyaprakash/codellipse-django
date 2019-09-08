@@ -1,0 +1,46 @@
+{%  extends "blog/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+<!-- <div class="row profile-page"> -->
+    <!-- <legend class="border-bottom mb-4">Profile Info</legend> -->
+    <!-- <div class="col-md-4"> -->
+        <!-- <div class="media">
+            <img class="rounded-circle acc-img" src="{{ user.profile.image.url }}">
+            <div class="media-body">
+                <h2 class="account-heading">{{ user.username }}</h2>
+                <p class="text-secondary">{{ user.email }}</p>
+            </div>
+        </div> -->
+    <!-- </div> -->
+    <div class="profile-page">
+        <div class="media">
+                <img class="rounded-circle acc-img" src="{{ user.profile.image.url }}">
+                <div class="media-body">
+                    <h2 class="account-heading">{{ user.username }}</h2>
+                    <p class="text-secondary">{{ user.email }}</p>
+                    <p>
+                        <a class="btn btn-sm btn-outline-success" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+                            Update info <i class="fas fa-caret-down"></i>
+                        </a>
+                    </p>
+                </div>
+        </div>
+        
+        <div class="collapse" id="collapseExample">
+            <div class="card card-body">
+                    <form class="form-signin" method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+                        <fieldset class="form-group">
+                            <legend class="border-bottom mb-4">Profile Info</legend>
+                            {{ u_form|crispy }}
+                            {{ p_form|crispy }}
+                            {# as_p changes the from fields in para fromat #}
+                        </fieldset>
+                        <div class="form-group">
+                            <button class="btn btn-sm rounded-pill btn-outline-success" type="submit">Update</button>
+                        </div>
+                    </form>
+            </div>
+        </div>
+    </div> 
+{% endblock content %}

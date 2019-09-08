@@ -1,0 +1,232 @@
+{% load static %}
+{% load humanize %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'blog/main.css' %}">
+    <link rel="JavaScript" href="{% static 'blog/main.js' %}">
+    <!-- <link rel="JavaScript" href="{% static 'blog/jquery.js' %}"> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--    -->
+    <script src="https://kit.fontawesome.com/fea96ba182.js"></script>
+    
+    <!-- programming languages icons -->
+    <link rel="stylesheet" href="https://cdn.rawgit.com/konpa/devicon/df6431e323547add1b4cf45992913f15286456d3/devicon.min.css">
+
+    <script type="text/javascript" src="{% static "ckeditor/ckeditor-init.js" %}"></script>
+    <script type="text/javascript" src="{% static "ckeditor/ckeditor/ckeditor.js" %}"></script>
+    
+    <script type="text/javascript">
+      $(document).ready(function(event){
+
+        // $(document).on('click', '#like', function(event){
+        //   event.preventDefault(); //prevent whatver was happening before clicking the btn
+        //   var pk = $(this).attr('value')  // to get the id of the respective post
+        //   // ajax login goes here 
+        //   $.ajax({
+        //     type : 'POST',
+        //     url : '{% url "post-like" %}',
+        //     data : {'id': pk, 'csrfmiddlewaretoken':'{{ csrf_token}}'},  // we need to pass this id like_post in views 
+        //     datatType : 'json',
+        //     success : function(response){
+        //       $('#like-section').html(response['form'])
+        //       console.log($('#like-section').html(response['form']));
+        //     },
+        //     error : function(rs ,e){
+        //       console.log(rs.responseText);
+        //     },
+        //   });
+        // });
+  
+        $('#delete').click(function(){
+          return confirm("Are you sure to delete this post?");
+        });
+
+        $(function(){
+          setTimeout(function(){
+            $('.alert').slideUp(2000);
+          }, 2000);
+        });
+        $(function () {
+          $('[data-toggle="tooltip"]').tooltip();
+        });
+
+        $('.reply-btn').click(function(){
+          $(this).parent().parent().next('.replied-comments').fadeToggle();
+        });
+
+      });
+    </script>
+    
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <header>
+        <div class="collapse bg-dark" id="navbarHeader">
+            <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-md-7 py-4">
+                <h4 class="text-white">About</h4>
+                  <div class="media">
+                    <img src="https://picsum.photos/id/320/64/64" class="align-self-start mr-3 border border-success" alt="...">
+                    <div class="media-body">
+                      <h5 class="mt-0 text-success">Prakash Madariya</h5>
+                      <p class="text-white">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
+                      <p class="text-white">Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4 offset-md-1 py-4">
+                <h4 class="text-white">Contact</h4>
+                <ul class="list-unstyled">
+                    <li><a href="#" class="text-white">Follow on Twitter</a></li>
+                    <li><a href="#" class="text-white">Like on Facebook</a></li>
+                    <li><a href="#" class="text-white">Email me</a></li>
+                </ul>
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="navbar navbar-dark bg-success shadow-sm">
+            <div class="container-fluid">
+            <a href="{% url 'blog-home' %}" class="navbar-brand d-flex align-items-center">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2" viewBox="0 0 24 24" focusable="false"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg> -->
+                <i class="fas fa-stream mr-1"></i>
+                <strong>Codellipse</strong>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            </div>
+        </div>
+    </header>
+    <main role="main">
+          <!-- <section class="jumbotron text-center">
+              <div class="container">
+                  <h1 class="jumbotron-heading">Album example</h1>
+                  <p class="lead text-muted">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+                  <p>
+                      <a href="#" class="btn btn-primary my-2">Main call to action</a>
+                      <a href="#" class="btn btn-secondary my-2">Secondary action</a>
+                  </p>
+              </div>
+          </section> -->
+        <!-- <div class="bg-info clearfix">
+                <button type="button" class="btn btn-secondary float-left">Example Button floated left</button>
+                <button type="button" class="btn btn-secondary float-center">Example Button floated left</button>
+                <button type="button" class="btn btn-secondary float-right">Example Button floated right</button>
+        </div> -->
+        <!-- <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+          <h5 class="my-0 mr-md-auto font-weight-normal">Company name</h5>
+          <nav class="my-2 my-md-0 mr-md-3">
+            <a class="p-2 text-dark" href="#">Features</a>
+            <a class="p-2 text-dark" href="#">Enterprise</a>
+            <a class="p-2 text-dark" href="#">Support</a>
+            <a class="p-2 text-dark" href="#">Pricing</a>
+          </nav>
+          <a class="btn btn-outline-primary" href="#">Sign up</a>
+        </div> -->
+        <nav class="navbar navbar-expand-md navbar-light bg-light mb-1">
+          <!-- <a class="navbar-brand" href="#">Navbar</a> -->
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'blog-home' %}">Blog</a>
+              </li>
+              <!-- <li class="nav-item">
+                <a class="nav-link disabled" href="#">Disabled</a>
+              </li> -->
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Languages</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                  <a class="dropdown-item" href="#"><i class="devicon-python-plain colored mr-2"></i>Python</a>
+                  <a class="dropdown-item" href="#"><i class="devicon-php-plain colored mr-2"></i>php</a>
+                  <a class="dropdown-item" href="#"><i class="devicon-java-plain colored mr-2"></i>Java</a>
+                  <a class="dropdown-item" href="#"><i class="devicon-dot-net-plain colored mr-2"></i>.Net</a>
+                  <a class="dropdown-item" href="#"><i class="devicon-javascript-plain colored mr-2"></i>JavaScript</a>
+                  <a class="dropdown-item" href="#"><i class="devicon-html5-plain colored mr-2"></i>Html</a>
+                  <a class="dropdown-item" href="#"><i class="devicon-css3-plain colored mr-2"></i>CSS</a>
+                  <a class="dropdown-item" href="#"><i class="devicon-jquery-plain colored mr-2"></i>jquery</a>
+                  <a class="dropdown-item" href="#"><i class="devicon-nodejs-plain colored mr-2"></i>Node.js</a>
+                </div>
+              </li>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Databases</a>
+                  <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="#">SQL Server</a>
+                    <a class="dropdown-item" href="#">MYSQL</a>
+                    <a class="dropdown-item" href="#">Oracle</a>
+                  </div>
+              </li>
+              <a class="nav-link" href="{% url 'all_ask_questions' %}">All asked question</a>
+              <a class="nav-link" href="/courses/">Courses</a>
+              <a class="nav-link" href="#">Projects</a>
+            </ul>
+            <ul class="navbar-nav">
+              {% if request.user.is_authenticated %}
+                <li class="nav-item dropdown mr-2">
+                  <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img class="rounded-circle login-profile-img mr-2" src="{{request.user.profile.image.url}}">Hi, {{request.user|capfirst}}</a>
+                  <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <span class="dropdown-item-text font-weight-bold">Account</span>
+                    <a class="dropdown-item" href="{% url 'user-profile' %}">Profile</a>
+                    <a class="dropdown-item" href="{% url 'user-logout' %}">Logout</a>
+                    <a class="dropdown-item" href="{% url 'password_change' %}">Change password</a>
+                    <div class="dropdown-divider"></div>
+                    <span class="dropdown-item-text font-weight-bold">Post</span>
+                    <a class="dropdown-item" href="{% url 'post-create' %}">Create new post</a>
+                    <a class="dropdown-item" href="{% url 'all-post' %}">All post</a>
+                    <a class="dropdown-item" href="{% url 'draft-posts' %}">Unpublished posts</a>
+                    <div class="dropdown-divider"></div>
+                    <span class="dropdown-item-text font-weight-bold">Question</span>
+                    <a class="dropdown-item" href="{% url 'create-ask-question' %}">Ask a question</a>
+                    <a class="dropdown-item" href="{% url 'draft-questions' %}">Unpublished questions</a>
+                    <a class="dropdown-item" href="{% url 'all-ask-questions' %}">Asked questions</a>
+                    <div class="dropdown-divider"></div>
+                    <span class="dropdown-item-text font-weight-bold">Liked & Bookmarked</span>
+                    <a class="dropdown-item" href="{% url 'post-favourite-list' %}">Favourite post <span class="badge badge-secondary">{{request.user.favourite.count}}</span></a>
+                    <a class="dropdown-item" href="{% url 'post_liked_list' %}">Liked post <span class="badge badge-secondary">{{request.user.likes.count}}</span></a>
+                  </div>
+                </li>
+              {% else %}
+                <a class="nav-link mr-2" href="#">Sign up</a>
+                <a class="nav-link mr-2" href="{% url 'user-login' %}">Login</a>
+              {% endif %}
+            </ul>
+            <form class="form-inline my-2 my-lg-0" action="{% url 'blog-home' %}">
+              <input class="form-control mr-lg-2" type="text" placeholder="Search" aria-label="Search" name="q">
+              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </div>
+        </nav>
+        {% include 'blog/messages.html' %}
+        <div class="container py-4">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </main>
+    <footer class="text-muted bg-success mt-5">
+        <div class="container text-white">
+          <p class="float-right">
+            <a href="#" class="text-dark"><i class="fas fa-arrow-circle-up"></i></a>
+          </p>
+          <p>Designed and built with all the love for app developers. &copy;Codellipse, merge you all developers at one place to share info and let other beginners have fun developing apps!</p>
+          <p>New to Codellipse? Have a look what you got here <a href="/docs/4.3/getting-started/introduction/" class="text-dark">click here</a>.</p>
+        </div>
+      </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>

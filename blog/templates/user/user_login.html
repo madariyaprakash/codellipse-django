@@ -1,0 +1,28 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container">
+        <form class="form-signin" method="POST">
+            {% csrf_token %}
+            <legend class="border-bottom mb-4">Login</legend>
+            {{form|crispy}}
+            <button class="btn btn-sm rounded-pill btn-outline-success" type="submit">Login</button> 
+            <div class="form-group">
+                <small><a href="{% url 'password_reset' %}">Forgot the password?</a></small>
+                <label class="text-success text-sm">Are you new in Codellipse?<a href="{% url 'user-register' %}">&nbsp;Join me</a></label>
+            </div>
+            <div class="">
+                <label class="text-success text-sm d-flex justify-content-center">....OR....</label>
+                <a href="{% url 'social:begin' 'github' %}">
+                    <button type="button" name="button" class="btn btn-dark">Github</button>
+                </a>
+                <a href="{% url 'social:begin' 'google-oauth2' %}">
+                    <button type="button" name="button" class="btn btn-danger">Google+</button>
+                </a>
+                <a href="{% url 'social:begin' 'twitter' %}">
+                        <button type="button" name="button" class="btn btn-primary">twitter</button>
+                </a>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
