@@ -25,8 +25,7 @@ urlpatterns = [
     path('blog/unpublished/posts/', views.user_draft_posts, name="draft-posts"),
     path('ask_question/unpublished/questions/', views.user_draft_questions, name="draft-questions"),
     path('blog/author_profile/', views.post_author_profile, name="post-author-profile"),
-    # courses
-    path('courses/', TemplateView.as_view(template_name = "courses/courses_page.html"))
+    
 ]
 
 if settings.DEBUG:

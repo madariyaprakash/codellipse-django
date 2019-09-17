@@ -3,19 +3,13 @@
 <div class="container">
         <div class="row">
             {% for post in liked_posts %}
-            <div class="col-md-4">
-                <div class="card mb-4 shadow-sm">
-                <div class="card-body">
-                    <a href="{% url 'post-detail' post.id post.slug %}"><h5 class="card-title">{{post.title}}</h5></a>
-                    <h6 class="card-subtitle mb-2 text-muted font-weight-lighter">{{post.author}} | {{post.created}} | <span class="badge badge-dark">{{ post.likes.count }} Like{{post.likes.count|pluralize}}</span></h6>
-                    <p class="card-text">{{post.body|safe|truncatewords:30}}</p>
-                    <div class="d-flex justify-content-between align-items-center">
-                    <!-- <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                    </div> -->
+            <div class="col-sm-4 p-1">
+                <div class="card">
+                    <div class="card-body">
+                    <h5 class="card-title">{{post.title}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted font-weight-lighter">{{post.author|capfirst}} | {{post.created}} | <span class="badge badge-dark">{{ post.likes.count }} Like{{post.likes.count|pluralize}}</span></h6>
+                    <a href="{% url 'post-detail' post.id post.slug %}" class="btn btn-success">Read</a>
                     </div>
-                </div>
                 </div>
             </div>
             {% empty %}

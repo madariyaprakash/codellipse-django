@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog.apps.BlogConfig',
     'user.apps.UserConfig',
+    'course.apps.CourseConfig',
     'django.contrib.humanize',
     'crispy_forms',
     'social_django',
@@ -114,17 +115,28 @@ WSGI_APPLICATION = 'codellipse.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'codellipse_db',
+#         'USER' : 'root',
+#         'PASSWORD' : '',
+#         'HOST' : '127.0.0.1',
+#         'PORT' : '3306',
+#         'OPTIONS' : {
+#             'sql_mode' : 'traditional',
+#         }
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'codellipse_db',
-        'USER' : 'root',
-        'PASSWORD' : '',
-        'HOST' : '127.0.0.1',
-        'PORT' : '3306',
-        'OPTIONS' : {
-            'sql_mode' : 'traditional',
-        }
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'codellipse',
+        'USER': 'postgres',
+        'PASSWORD': 'admin@123',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
     }
 }
 

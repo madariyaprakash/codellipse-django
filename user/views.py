@@ -79,7 +79,7 @@ def profile(request):
 
 
 def all_post(request):
-    posts = Post.post_list.filter(author =request.user)
+    posts = Post.objects.filter(author =request.user)
     # if posts.author_id != request.user.id:
         # raise Http404()
     context = {

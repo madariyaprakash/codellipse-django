@@ -6,8 +6,8 @@
             <div class="col-3">
                 <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
                 <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Profile</a>
-                <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Posts</a>
-                <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Asked Questions</a>
+                <a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Posts<span class="badge badge-light bg-success float float-right mt-1 text-white">{{ user_posts_counts }}</span></a>
+                <a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Asked Questions<span class="badge badge-light bg-success float float-right mt-1 text-white">{{ user_asked_ques_counts }}</span></a>
                 <a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Answered to Questions</a>
                 </div>
                 <div class="container border border-success rounded p-2 mt-3">
@@ -32,7 +32,7 @@
                 <div class="tab-pane fade " id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                     {% for post in user_posts %}
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><i class="fas fa-clipboard-list mr-1"></i>{{ post.title }}</li>
+                            <li class="list-group-item"><i class="fas fa-clipboard-list mr-1"></i><a href="{% url 'post-detail' post.id post.slug %}">{{post.title }}</a></li>
                         </ul>
                         {% empty %}
                         <p class="text-info">There has not been posted any post.</p>
@@ -44,7 +44,7 @@
                 <div class="tab-pane fade " id="v-pills-messages" role="tabpanel" aria-labelledby="v-pills-messages-tab">
                     {% for ques in user_asked_ques %}
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item"><i class="fas fa-clipboard-list mr-1"></i>{{ ques.title }}</li>
+                            <li class="list-group-item"><i class="far fa-question-circle mr-1"></i><a href="{% url 'detail-ask-question' ques.id ques.slug %}">{{ques.title }}</a></li>
                         </ul>
                         {% empty %}
                             <p class="text-info">There has not been asked any question.</p>

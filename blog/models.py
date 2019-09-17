@@ -11,20 +11,20 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 # Let's create a model manager to modify the initial queryset so that we could 
 # retrieve the only published data
-class PublishedPost(models.Manager):
-    def get_queryset(self):
-        return super().get_queryset().filter(status="Published")
+# class PublishedPost(models.Manager):
+#     def get_queryset(self):
+#         return super().get_queryset().filter(status="Published")
 
-class DraftedPost(models.Manager):
-    def get_queryset(self):
-        return super().get_queryset().filter(status="Draft")
+# class DraftedPost(models.Manager):
+#     def get_queryset(self):
+#         return super().get_queryset().filter(status="Draft")
 
 
 # Create your models here.
 class Post(models.Model):
-    post_list = models.Manager() # This is default manager 
-    published = PublishedPost()  # The default PublishedPost manager.
-    drafted = DraftedPost() # This is manager to show the drafted post
+    # post_list = models.Manager() # This is default manager 
+    # published = PublishedPost()  # The default PublishedPost manager.
+    # drafted = DraftedPost() # This is manager to show the drafted post
 
     STATUS_CHOICES = (
         ('draft', 'Draft'),
@@ -40,6 +40,7 @@ class Post(models.Model):
     status  =   models.CharField(max_length=10, choices=STATUS_CHOICES, default='draft')
     favourite = models.ManyToManyField(User, related_name='favourite', blank=True)
     banner   = models.ImageField(upload_to = "post_images/", default="default_post_img.jpg")
+
 
 
     class Meta:
@@ -78,20 +79,20 @@ class Comment(models.Model):
 
 
 
-class PublishedAQ(models.Manager):
-    def get_queryset(self):
-        return super().get_queryset().filter(status="Published")
+# class PublishedAQ(models.Manager):
+#     def get_queryset(self):
+#         return super().get_queryset().filter(status="Published")
 
 
-class DraftedAQ(models.Manager):
-    def get_queryset(self):
-        return super().get_queryset().filter(status="Draft")
+# class DraftedAQ(models.Manager):
+#     def get_queryset(self):
+#         return super().get_queryset().filter(status="Draft")
 
 
 class AskQuestion(models.Model):
-    ask_list = models.Manager()     # This is the main model manager
-    published_aq = PublishedAQ()    # This is ask public question published manager
-    drafted_aq = DraftedAQ()    # This is ask public question drafted manager
+    # ask_list = models.Manager()     # This is the main model manager
+    # published_aq = PublishedAQ()    # This is ask public question published manager
+    # drafted_aq = DraftedAQ()    # This is ask public question drafted manager
 
     STATUS_CHOICES = (
         ('draft', 'Draft'),

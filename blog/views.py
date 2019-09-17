@@ -18,11 +18,11 @@ def post_list(request):
     # posts = Post.objects.all()  # This was the default django intial queryset
     # which we have modified in the model named file and create a customer queryset which
     # will only retrieve the published posts
-    post_list = Post.published.all()    # we define the ordering in Meta tag model cls
+    post_list = Post.objects.filter(status="published")    # we define the ordering in Meta tag model cls
     query = request.GET.get('q')
     # print(query)
     if query:
-        post_list = Post.published.filter(
+        post_list = Post.objects.filter(
             Q(title__icontains=query)|
             Q(author__username=query)|
             Q(body__icontains=query)
@@ -277,27 +277,29 @@ def ask_question_delete(request, id):
 
 
 def user_asq_questions(request):
-    list_ques_ask = AskQuestion.ask_list.filter(author = request.user).order_by("-id")
+    list_ques_ask = AskQuestion.objects.filter(author = request.user).order_by("-id")
     context = {
-        'list_ques_ask' : list_ques_ask
+        'list_ques_ask' : list_ques_ask,
+        'list_ques_ask_count' : list_ques_ask.count
     }
     return render(request, "ask_question/user_ask_questions.html", context)
 
 
 
 def all_ask_questions(request):
-    all_ques = AskQuestion.published_aq.all().order_by("-id")
+    all_ques = AskQuestion.objects.all().order_by("-id")
     context = {
-        'all_ques' : all_ques
+        'all_ques' : all_ques,
     }
     return render(request, "ask_question/all_ask_questions.html", context)
 
 
 # This is for list out unpublished posts
 def user_draft_posts(request):
-    drafted_posts = Post.drafted.filter(author = request.user).order_by("-id")
+    drafted_posts = Post.objects.filter(author = request.user).filter(status="draft").order_by("-id")
     context={
-        'drafted_posts' : drafted_posts
+        'drafted_posts' : drafted_posts,
+        'drafted_posts_count' : drafted_posts.count
     }
     return render(request, "blog/user_drafted_post.html", context)
 
@@ -305,9 +307,10 @@ def user_draft_posts(request):
 
 # This is for list out unpublished questions
 def user_draft_questions(request):
-    drafted_ques = AskQuestion.drafted_aq.filter(author = request.user).order_by("-id")
+    drafted_ques = AskQuestion.objects.filter(author = request.user).filter(status="draft").order_by("-id")
     context={
-        'drafted_ques' : drafted_ques
+        'drafted_ques' : drafted_ques,
+        'drafted_ques_count': drafted_ques.count
     }
     return render(request, "ask_question/user_drafted_questions.html", context)
 
@@ -317,15 +320,17 @@ def user_draft_questions(request):
 # Post author profile details 
 def post_author_profile(request):
     id = request.POST.get("idno")
-    user_posts = Post.published.filter(author_id = id )
+    user_posts = Post.objects.filter(author_id = id)
     user_info = User.objects.filter(id = id)
-    user_asked_ques = AskQuestion.published_aq.filter(author_id = id)
+    user_asked_ques = AskQuestion.objects.filter(author_id = id)
     print(id)
     print(user_posts)
     context ={
         'user_posts': user_posts,
+        'user_posts_counts': user_posts.count,
         'user_info' : user_info,
-        'user_asked_ques': user_asked_ques
+        'user_asked_ques': user_asked_ques,
+        'user_asked_ques_counts': user_asked_ques.count,
     }
     return render(request, "blog/post_author_profile.html", context)
 

@@ -48,11 +48,11 @@
           return confirm("Are you sure to delete this post?");
         });
 
-        $(function(){
-          setTimeout(function(){
-            $('.alert').slideUp(2000);
-          }, 2000);
-        });
+        // $(function(){
+        //   setTimeout(function(){
+        //     $('.alert').slideUp(2000);
+        //   }, 2000);
+        // });
         $(function () {
           $('[data-toggle="tooltip"]').tooltip();
         });
@@ -74,11 +74,11 @@
                 <div class="col-sm-8 col-md-7 py-4">
                 <h4 class="text-white">About</h4>
                   <div class="media">
-                    <img src="https://picsum.photos/id/320/64/64" class="align-self-start mr-3 border border-success" alt="...">
+                    <img src="{% static 'images/mypic2.jpg' %}" class="align-self-start mr-3 border border-success" style="height: 75px; width:75px;" alt="...">
                     <div class="media-body">
                       <h5 class="mt-0 text-success">Prakash Madariya</h5>
-                      <p class="text-white">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla. Donec lacinia congue felis in faucibus.</p>
-                      <p class="text-white">Donec sed odio dui. Nullam quis risus eget urna mollis ornare vel eu leo. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>
+                      <p class="text-white">Hello guys, this is Prakash Madariya. I'm a full stack developer by profession. I've pretty good knowledge about core languages such as .Net, Php, Python and I mostly prefer developing website and mobile app.</p>
+                      <p class="text-white">I wanted to create a place where all the developers could share their knowledge and other people who are seeking for help while developing any project could find it useful. Finally, that came true and here you are. All the best!!</p>
                     </div>
                   </div>
                 </div>
@@ -184,13 +184,13 @@
                     <div class="dropdown-divider"></div>
                     <span class="dropdown-item-text font-weight-bold">Post</span>
                     <a class="dropdown-item" href="{% url 'post-create' %}">Create new post</a>
-                    <a class="dropdown-item" href="{% url 'all-post' %}">All post</a>
+                    <a class="dropdown-item" href="{% url 'all-post' %}">My all posts</a>
                     <a class="dropdown-item" href="{% url 'draft-posts' %}">Unpublished posts</a>
                     <div class="dropdown-divider"></div>
                     <span class="dropdown-item-text font-weight-bold">Question</span>
                     <a class="dropdown-item" href="{% url 'create-ask-question' %}">Ask a question</a>
-                    <a class="dropdown-item" href="{% url 'draft-questions' %}">Unpublished questions</a>
                     <a class="dropdown-item" href="{% url 'all-ask-questions' %}">Asked questions</a>
+                    <a class="dropdown-item" href="{% url 'draft-questions' %}">Unpublished questions</a>
                     <div class="dropdown-divider"></div>
                     <span class="dropdown-item-text font-weight-bold">Liked & Bookmarked</span>
                     <a class="dropdown-item" href="{% url 'post-favourite-list' %}">Favourite post <span class="badge badge-secondary">{{request.user.favourite.count}}</span></a>

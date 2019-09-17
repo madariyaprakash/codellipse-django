@@ -1,0 +1,228 @@
+{%  extends "blog/base.html" %}
+{% load static %}
+{% block content %}
+<div class="container">
+        <nav>
+            <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-core-tab" data-toggle="tab" href="#nav-core" role="tab" aria-controls="nav-core" aria-selected="true">Core languages</a>
+                <a class="nav-item nav-link" id="nav-designing-tab" data-toggle="tab" href="#nav-designing" role="tab" aria-controls="nav-designing" aria-selected="false">Designing languages</a>
+                <a class="nav-item nav-link" id="nav-databases-tab" data-toggle="tab" href="#nav-databases" role="tab" aria-controls="nav-databases" aria-selected="false">Databases</a>
+                <a class="nav-item nav-link" id="nav-frameworks-tab" data-toggle="tab" href="#nav-frameworks" role="tab" aria-controls="nav-frameworks" aria-selected="false">Frameworks</a>
+            </div>
+        </nav>
+        <!-- core languages -->
+        <div class="tab-content mt-3" id="nav-tabContent">
+            <div class="tab-pane fade show active" id="nav-core" role="tabpanel" aria-labelledby="nav-core-tab">
+                <div class="container">
+                        <div class="row">
+                                <div class="col-sm-4 p-2">
+                                    <div class="card border-success text-center" >
+                                            <img class="justify-content-center bg-success" height="100px" src="{% static 'prog_lang_icons/python-brands.svg' %}">
+                                            <div class="card-body justify-content-center">
+                                                <h5 class="card-title">Python</h5>
+                                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                <a href="#" class="btn btn-success rounded-pill">Get started</a>
+                                            </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-sm-4 p-2">
+                                    <div class="card border-success text-center" >
+                                            <img class="justify-content-center bg-success" height="100px" src="{% static 'prog_lang_icons/android-brands.svg' %}">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">Android</h5>
+                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                    <a href="#" class="btn btn-success rounded-pill">Get started</a>
+                                                </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-4 p-2">
+                                    <div class="card border-success text-center" >
+                                            <img class="justify-content-center bg-success" height="100px" src="{% static 'prog_lang_icons/php-brands.svg' %}">
+                                                <div class="card-body">
+                                                    <h5 class="card-title">PHP</h5>
+                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                    <a href="#" class="btn btn-success rounded-pill disable">Get started</a>
+                                                </div>
+                                    </div>
+                                </div>
+                        </div>
+                </div>
+            </div>
+
+            <!-- designing languages -->
+            <div class="tab-pane fade" id="nav-designing" role="tabpanel" aria-labelledby="nav-designing-tab">
+                    <div class="container">
+                            <div class="row">
+                                   
+                                    <div class="col-sm-4 p-2">
+                                        <div class="card border-success text-center" >
+                                                <img class="justify-content-center bg-success" height="100px" src="{% static 'prog_lang_icons/html5-brands.svg' %}">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">HTML5</h5>
+                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                        <a href="#" class="btn btn-success rounded-pill">Get started</a>
+                                                    </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 p-2">
+                                        <div class="card border-success text-center" >
+                                                <img class="justify-content-center bg-success" height="100px" src="{% static 'prog_lang_icons/js-square-brands.svg' %}">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">JavaScrips</h5>
+                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                        <a href="#" class="btn btn-success rounded-pill">Get started</a>
+                                                    </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 p-2">
+                                        <div class="card border-success text-center" >
+                                                <img class="justify-content-center bg-success" height="100px" src="{% static 'prog_lang_icons/css3-alt-brands.svg' %}">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">CSS3</h5>
+                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                        <a href="#" class="btn btn-success rounded-pill disable">Get started</a>
+                                                    </div>
+                                        </div>
+                                    </div>
+                            </div>
+                    </div>
+            </div>
+
+            <!-- Database -->
+            <div class="tab-pane fade" id="nav-databases" role="tabpanel" aria-labelledby="nav-databases-tab">
+                    <div class="container">
+                            <p class="text-warning">Coming soon..</p>
+                        </div>
+                    <!-- <div class="container">
+                            <div class="row">
+                                    <div class="col-sm-4 p-2">
+                                        <div class="card border-success text-center" >
+                                                <img class="justify-content-center bg-success" height="100px" src="{% static 'prog_lang_icons/python-brands.svg' %}">
+                                                <div class="card-body justify-content-center">
+                                                    <h5 class="card-title">Python</h5>
+                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                    <a href="#" class="btn btn-success rounded-pill">Get started</a>
+                                                </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-sm-4 p-2">
+                                        <div class="card border-success text-center" >
+                                                <img class="justify-content-center bg-success" height="100px" src="{% static 'prog_lang_icons/html5-brands.svg' %}">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">HTML5</h5>
+                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                        <a href="#" class="btn btn-success rounded-pill">Get started</a>
+                                                    </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 p-2">
+                                        <div class="card border-success text-center" >
+                                                <img class="justify-content-center bg-success" height="100px" src="{% static 'prog_lang_icons/js-square-brands.svg' %}">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">JavaScrips</h5>
+                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                        <a href="#" class="btn btn-success rounded-pill">Get started</a>
+                                                    </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 p-2">
+                                        <div class="card border-success text-center" >
+                                                <img class="justify-content-center bg-success" height="100px" src="{% static 'prog_lang_icons/css3-alt-brands.svg' %}">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">CSS3</h5>
+                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                        <a href="#" class="btn btn-success rounded-pill disable">Get started</a>
+                                                    </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 p-2">
+                                        <div class="card border-success text-center" >
+                                                <img class="justify-content-center bg-success" height="100px" src="{% static 'prog_lang_icons/php-brands.svg' %}">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">PHP</h5>
+                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                        <a href="#" class="btn btn-success rounded-pill disable">Get started</a>
+                                                    </div>
+                                        </div>
+                                    </div>
+                            </div>
+                    </div> -->
+            </div>
+            <!-- Frameworks -->
+            <div class="tab-pane fade" id="nav-frameworks" role="tabpanel" aria-labelledby="nav-frameworks-tab">
+                <div class="container">
+                    <p class="text-warning">Coming soon..</p>
+                </div>
+                    <!-- <div class="container">
+                            <div class="row">
+                                    <div class="col-sm-4 p-2">
+                                        <div class="card border-success text-center" >
+                                                <img class="justify-content-center bg-success" height="100px" src="{% static 'prog_lang_icons/python-brands.svg' %}">
+                                                <div class="card-body justify-content-center">
+                                                    <h5 class="card-title">Python</h5>
+                                                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                    <a href="#" class="btn btn-success rounded-pill">Get started</a>
+                                                </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 p-2">
+                                        <div class="card border-success text-center" >
+                                                <img class="justify-content-center bg-success" height="100px" src="{% static 'prog_lang_icons/android-brands.svg' %}">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">Android</h5>
+                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                        <a href="#" class="btn btn-success rounded-pill">Get started</a>
+                                                    </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 p-2">
+                                        <div class="card border-success text-center" >
+                                                <img class="justify-content-center bg-success" height="100px" src="{% static 'prog_lang_icons/html5-brands.svg' %}">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">HTML5</h5>
+                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                        <a href="#" class="btn btn-success rounded-pill">Get started</a>
+                                                    </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 p-2">
+                                        <div class="card border-success text-center" >
+                                                <img class="justify-content-center bg-success" height="100px" src="{% static 'prog_lang_icons/js-square-brands.svg' %}">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">JavaScrips</h5>
+                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                        <a href="#" class="btn btn-success rounded-pill">Get started</a>
+                                                    </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 p-2">
+                                        <div class="card border-success text-center" >
+                                                <img class="justify-content-center bg-success" height="100px" src="{% static 'prog_lang_icons/css3-alt-brands.svg' %}">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">CSS3</h5>
+                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                        <a href="#" class="btn btn-success rounded-pill disable">Get started</a>
+                                                    </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 p-2">
+                                        <div class="card border-success text-center" >
+                                                <img class="justify-content-center bg-success" height="100px" src="{% static 'prog_lang_icons/php-brands.svg' %}">
+                                                    <div class="card-body">
+                                                        <h5 class="card-title">PHP</h5>
+                                                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                                        <a href="#" class="btn btn-success rounded-pill disable">Get started</a>
+                                                    </div>
+                                        </div>
+                                    </div>
+                            </div>
+                    </div> -->
+            </div>
+        </div>
+    
+</div>
+
+{% endblock content %}

@@ -1,7 +1,7 @@
 {% extends 'blog/base.html' %}
 {% block content %}
 <div class="container">
-        <h5 class="card-header border-0 rounded">{{ request.user|capfirst }}- unpublished questions <span class="badge badge-secondary">{{num_posts}}</span></h5>
+        <h5 class="card-header border-0 rounded">{{ request.user|capfirst }}- unpublished questions <span class="badge badge-secondary">{{drafted_ques_count}}</span></h5>
         {% for ques in drafted_ques %}
             <div class="card mt-2">
                     <div class="card-body">

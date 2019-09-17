@@ -23,3 +23,10 @@ class Profile(models.Model):
             img.thumbnail(output_size)
             img.save(self.image.path)
 
+
+# class Aboutme(models.Model):
+#     # CASCADE means when we delete the use, respective profile pic will get deleted,
+#     # However, when we delete the picture, user account is not going to be deleted.
+#     user = models.ForeignKey(User, on_delete=models.CASCADE)
+#     aboutme= models.CharField(max_length=200, blank=True)
+
