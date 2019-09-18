@@ -35,7 +35,7 @@ SECRET_KEY = 'f3xz#8_@4t%n!(h0l-8+=$&pb_zifm6#i*(z8289gvm^dxgoth'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['codellipse.herokuapp.com']
 
 
 # Application definition
