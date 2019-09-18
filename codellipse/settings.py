@@ -129,13 +129,25 @@ WSGI_APPLICATION = 'codellipse.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'codellipse',
+#         'USER': 'postgres',
+#         'PASSWORD': 'admin@123',
+#         'HOST': '127.0.0.1',
+#         'PORT': '5432',
+#     }
+# }
+
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'codellipse',
-        'USER': 'postgres',
-        'PASSWORD': 'admin@123',
-        'HOST': '127.0.0.1',
+        'NAME': 'd6tcee5b7ee90s',
+        'USER': 'trpbtvnkjdixar',
+        'PASSWORD': '2a6240a45d7f75d9d1eaf21a8d9c72e07cdc9318ffeb0047f7b64db601f6d8d8',
+        'HOST': 'ec2-54-225-116-36.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
