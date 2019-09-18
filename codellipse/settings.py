@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import django_heroku
 from django.contrib.messages import constants as messages
 
 MESSAGE_TAGS = {
@@ -231,3 +232,6 @@ SOCIAL_AUTH_TWITTER_SECRET = 'KpSEn5LanLSzHKOCHyykqSQ1WUDjR2Dsp9t4Ymik8EJj3XeU3W
 
 SOCIAL_AUTH_GITHUB_KEY = '0b6bed4f2b42ab0a567d'
 SOCIAL_AUTH_GITHUB_KEY = '50afd226e188e24a559a2d233868b1d71cd57aff'
+
+
+django_heroku.settings(local())
