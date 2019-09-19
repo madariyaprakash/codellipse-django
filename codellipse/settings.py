@@ -62,6 +62,7 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -197,9 +198,17 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'static'),
 )
-
 #On the server, run collectstatic to copy all the static files into STATIC_ROOT.
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+# it will locate the media file when we fetch the picture.
+MEDIA_URL = '/media/'
+# Media root will set a base directory for uploaded file in system no matter what OS
+# we're working with
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
 
 # to get the crispy form feature we need to configure the bootstrap 4
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -213,12 +222,6 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'tak2prakash@gmail.com'
 EMAIL_HOST_PASSWORD = 'ycovcxknzccagqdl'
-
-# Media root will set a base directory for uploaded file in system no matter what OS
-# we're working with
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-# it will locate the media file when we fetch the picture.
-MEDIA_URL = '/media/'
 
 
 LOGIN_REDIRECT_URL = 'post_list'
