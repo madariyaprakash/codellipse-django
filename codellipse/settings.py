@@ -30,12 +30,15 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 # See https://docs.djangoproject.com/en/2.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'f3xz#8_@4t%n!(h0l-8+=$&pb_zifm6#i*(z8289gvm^dxgoth'
+# SECRET_KEY = 'f3xz#8_@4t%n!(h0l-8+=$&pb_zifm6#i*(z8289gvm^dxgoth'
+SECRET_KEY = os.environ.get("SECRET_KEY_CODELLIPSE")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ['codellipse.herokuapp.com']
+
+# ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -55,6 +58,7 @@ INSTALLED_APPS = [
     'social_django',
     'ckeditor',
     'ckeditor_uploader',
+    'storages',
 ]
 
 
@@ -235,4 +239,15 @@ SOCIAL_AUTH_TWITTER_SECRET = 'KpSEn5LanLSzHKOCHyykqSQ1WUDjR2Dsp9t4Ymik8EJj3XeU3W
 SOCIAL_AUTH_GITHUB_KEY = '0b6bed4f2b42ab0a567d'
 SOCIAL_AUTH_GITHUB_KEY = '50afd226e188e24a559a2d233868b1d71cd57aff'
 
+
+AWS_ACCESS_KEY_ID = os.environ.get("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = os.environ.get("AWS_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_STORAGE_BUCKET_NAME")
+
+# "In case if two users have same time of name .JPG or .PNG files, it will not overwrite them"
+AWS_S3_FILE_OVERWRITE = False
+
+AWS_DEFAULT_ACL = None
+
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 
